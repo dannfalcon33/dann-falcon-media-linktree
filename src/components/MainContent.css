@@ -1,0 +1,585 @@
+@import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css";
+
+.main-content {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease, transform 1s ease;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.main-content.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.profile-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2.5rem;
+  text-align: center;
+}
+
+.profile-image-container {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid var(--color-text);
+  margin-bottom: 1.5rem;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+  transition: transform 0.5s ease;
+}
+
+.profile-image-container:hover {
+  transform: scale(1.05);
+}
+
+.profile-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.brand-title {
+  font-size: 1.8rem;
+  letter-spacing: 0.1em;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.links-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.link-card {
+  display: block;
+  padding: 1rem 1.5rem;
+  background: rgba(255, 255, 255, 0.05); /* Glassmorphism light */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px; /* Slightly rounded, not full pill for premium feel */
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.9rem;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(5px);
+}
+
+.link-card:hover {
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--color-bg);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 255, 255, 0.15);
+}
+
+/* Specific highlight for Kofi link if desired */
+.link-card.highlight {
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.footer {
+  margin-top: 3rem;
+  font-size: 0.75rem;
+  opacity: 0.7;
+}
+
+.footer p {
+  color: #fff;
+}
+
+/* Staggered entrance animations */
+.link-card,
+.footer {
+  opacity: 0;
+  animation: slideUpFade 0.8s forwards;
+}
+
+@keyframes slideUpFade {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.delay-1 {
+  animation-delay: 0.1s;
+}
+.delay-2 {
+  animation-delay: 0.2s;
+}
+.delay-3 {
+  animation-delay: 0.3s;
+}
+.delay-4 {
+  animation-delay: 0.4s;
+}
+.delay-5 {
+  animation-delay: 0.6s;
+}
+
+/* Estilos del botón de TikTok RECTANGULAR */
+.tiktok-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 60px;
+  background-color: #000000;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 3px solid #ffffff;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* Icono de TikTok */
+.tiktok-btn i {
+  font-size: 30px;
+  color: #ffffff;
+  z-index: 2;
+  transition: all 0.3s ease;
+  margin-right: 15px;
+}
+
+/* Texto del botón */
+.btn-text {
+  font-size: 18px;
+  font-weight: 700;
+  color: #ffffff;
+  z-index: 2;
+  transition: all 0.3s ease;
+  letter-spacing: 1px;
+}
+
+/* Efecto de iluminación en hover */
+.tiktok-btn:hover {
+  background-color: #00f7ff;
+  border-color: #00f7ff;
+  box-shadow: 0 0 20px rgba(0, 247, 255, 0.7), 0 0 40px rgba(0, 247, 255, 0.4),
+    0 0 60px rgba(0, 247, 255, 0.2);
+  transform: translateY(-5px);
+}
+
+/* Efecto PULSE en hover */
+.tiktok-btn:hover::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 247, 255, 0.1);
+  border-radius: 12px;
+  animation: pulse 1.5s infinite;
+  z-index: 1;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.4;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+}
+
+/* Efecto de brillo en los bordes */
+.tiktok-btn::after {
+  content: "";
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  border-radius: 14px;
+  background: linear-gradient(45deg, #00f7ff, #ffffff, #00f7ff, #ffffff);
+  background-size: 400% 400%;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.tiktok-btn:hover::after {
+  opacity: 1;
+  animation: gradient-border 3s ease infinite;
+}
+
+@keyframes gradient-border {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Cambiar color del texto e icono en hover */
+.tiktok-btn:hover i,
+.tiktok-btn:hover .btn-text {
+  color: #000000;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.instructions {
+  margin-top: 20px;
+  color: #b0e0e6;
+  font-style: italic;
+  max-width: 500px;
+}
+
+.footer {
+  margin-top: 40px;
+  color: #88d3ce;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+/* Versión más pequeña */
+.tiktok-btn.small {
+  width: 200px;
+  height: 60px;
+  margin-top: 30px;
+}
+
+.tiktok-btn.small i {
+  font-size: 30px;
+  margin-right: 10px;
+}
+
+.tiktok-btn.small .btn-text {
+  font-size: 20px;
+}
+
+/* Versión solo icono */
+.tiktok-btn.icon-only {
+  width: 80px;
+  height: 80px;
+}
+
+.tiktok-btn.icon-only i {
+  margin-right: 0;
+  font-size: 40px;
+}
+
+.tiktok-btn.icon-only .btn-text {
+  display: none;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .container {
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .tiktok-btn {
+    width: 100%;
+    height: 70px;
+  }
+
+  .tiktok-btn i {
+    font-size: 35px;
+  }
+
+  .btn-text {
+    font-size: 22px;
+  }
+}
+
+/* Estilos del botón de YouTube RECTANGULAR */
+.youtube-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 60px;
+  background-color: #000000;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 3px solid #ffffff;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* Icono de YouTube */
+.youtube-btn i {
+  font-size: 30px;
+  color: #ffffff;
+  z-index: 2;
+  transition: all 0.3s ease;
+  margin-right: 15px;
+}
+
+/* Efecto de iluminación en hover */
+.youtube-btn:hover {
+  background-color: #ff0000;
+  border-color: #ff0000;
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.7), 0 0 40px rgba(255, 0, 0, 0.4),
+    0 0 60px rgba(255, 0, 0, 0.2);
+  transform: translateY(-5px);
+}
+
+/* Efecto PULSE en hover */
+.youtube-btn:hover::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 0, 0, 0.1);
+  border-radius: 12px;
+  animation: pulse 1.5s infinite;
+  z-index: 1;
+}
+
+/* Efecto de brillo en los bordes */
+.youtube-btn::after {
+  content: "";
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  border-radius: 14px;
+  background: linear-gradient(45deg, #ff0000, #ffffff, #ff0000, #ffffff);
+  background-size: 400% 400%;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.youtube-btn:hover::after {
+  opacity: 1;
+  animation: gradient-border 3s ease infinite;
+}
+
+/* Cambiar color del texto e icono en hover */
+.youtube-btn:hover i,
+.youtube-btn:hover .btn-text {
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Responsive adjustment for YouTube */
+@media (max-width: 600px) {
+  .youtube-btn {
+    width: 100%;
+    height: 70px;
+  }
+
+  .youtube-btn i {
+    font-size: 35px;
+  }
+}
+
+/* CONTACT BUTTON - Google Colors Hover */
+.contact-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 60px;
+  background-color: #000000;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: all 0.4s ease;
+  border: 3px solid #ffffff;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.contact-btn i,
+.contact-btn .btn-text {
+  color: #ffffff;
+  z-index: 2;
+  transition: all 0.3s ease;
+}
+
+.contact-btn i {
+  font-size: 30px;
+  margin-right: 15px;
+}
+
+.contact-btn .btn-text {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.contact-btn:hover {
+  background-color: #ffffff;
+  border-color: #ffffff;
+  transform: translateY(-5px);
+  /* Google Colors Shadow/Glow */
+  box-shadow: -4px -4px 10px rgba(66, 133, 244, 0.5),
+    /* Blue */ 4px -4px 10px rgba(234, 67, 53, 0.5),
+    /* Red */ -4px 4px 10px rgba(251, 188, 5, 0.5),
+    /* Yellow */ 4px 4px 10px rgba(52, 168, 83, 0.5); /* Green */
+}
+
+.contact-btn:hover i,
+.contact-btn:hover .btn-text {
+  color: #555; /* Dark grey text on white bg */
+}
+
+/* Gradient Border Effect for Google Colors */
+.contact-btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, #4285f4, #ea4335, #fbbc05, #34a853);
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.3s;
+}
+
+/* Use before for the white background inside the border */
+.contact-btn::before {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  right: 3px;
+  bottom: 3px;
+  background: #000;
+  border-radius: 9px;
+  z-index: 1;
+  transition: background 0.3s;
+}
+.contact-btn:hover::before {
+  background: #fff;
+}
+
+/* KOFI BUTTON - Gold, Shake, CTA */
+.kofi-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 60px;
+  background-color: #000000;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: all 0.4s ease;
+  border: 3px solid #ffd700; /* Gold Border */
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(255, 215, 0, 0.2);
+
+  /* Infinite Shake Animation */
+  animation: shakeBtn 2s infinite ease-in-out;
+}
+
+@keyframes shakeBtn {
+  0%,
+  90%,
+  100% {
+    transform: rotate(0deg);
+  }
+  92% {
+    transform: rotate(-3deg);
+  }
+  94% {
+    transform: rotate(3deg);
+  }
+  96% {
+    transform: rotate(-3deg);
+  }
+  98% {
+    transform: rotate(3deg);
+  }
+}
+
+.kofi-btn i,
+.kofi-btn .btn-text {
+  color: #ffd700; /* Gold Text */
+  z-index: 2;
+  transition: all 0.3s ease;
+}
+
+.kofi-btn i {
+  font-size: 26px; /* Slightly smaller to fit long text if needed */
+  margin-right: 15px;
+}
+
+.kofi-btn .btn-text {
+  font-size: 16px; /* Smaller text for longer label */
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.kofi-btn:hover {
+  background-color: #ffd700;
+  box-shadow: 0 0 30px rgba(255, 215, 0, 0.6);
+  transform: translateY(-3px) scale(1.02);
+  animation-play-state: paused; /* Stop shake on hover */
+}
+
+.kofi-btn:hover i,
+.kofi-btn:hover .btn-text {
+  color: #000; /* Black text on Gold bg */
+  text-shadow: none;
+}
+
+/* Responsive adjustment */
+@media (max-width: 600px) {
+  .contact-btn,
+  .kofi-btn {
+    width: 100%;
+    height: 70px;
+  }
+
+  .contact-btn i,
+  .kofi-btn i {
+    font-size: 30px;
+  }
+
+  .contact-btn .btn-text {
+    font-size: 20px;
+  }
+
+  .kofi-btn .btn-text {
+    font-size: 14px; /* Smaller on mobile to fit */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 200px;
+  }
+}
