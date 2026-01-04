@@ -98,7 +98,7 @@ export const SOCIAL_LINKS: SocialLink[] = [
 
 ## Live Demo
 
-https://logostarot.netlify.app/
+https://dann-falcon-media-linktree.yoshuasoto54.workers.dev/
 
 ## Sobre el Desarrollador 👨‍💻
 
