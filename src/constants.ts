@@ -34,7 +34,7 @@ export const SOCIAL_LINKS: SocialLink[] = [
   },
   {
     id: "kofi",
-    url: "https://ko-fi.com",
+    url: "https://ko-fi.com/dannfalconmedia",
     label: "Apóyanos para seguir creciendo",
     iconClass: "fas fa-mug-hot",
     className: "kofi-btn highlight delay-4",
