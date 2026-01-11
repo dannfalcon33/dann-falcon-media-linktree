@@ -18,7 +18,7 @@ export const SOCIAL_LINKS: SocialLink[] = [
   },
   {
     id: "youtube",
-    url: "https://youtube.com",
+    url: "https://www.youtube.com/@masterhorus33",
     label: "YouTube",
     iconClass: "fab fa-youtube",
     className: "youtube-btn",
